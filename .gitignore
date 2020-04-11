@@ -103,3 +103,4 @@ typings/
 
 /.gitconfig
 /.idea/
+/server/public/build/

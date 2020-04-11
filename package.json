@@ -1,0 +1,25 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "cd client && npm install &&  cd ../server/functions && npm install",
+    "serve": "cd client && npm run build-move && cd ../server && firebase serve",
+    "clean": "cd server && rm -rf ../client/build public/build",
+    "deploy-hosting": "npm run clean && cd client && npm run build-move && cd ../server && firebase deploy --only hosting",
+    "deploy-functions": "cd ../server && firebase deploy --only functions",
+    "deploy": "npm run clean && cd client && npm run build-move && cd ../server && firebase deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pallav-jain-au3/expense-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pallav-jain-au3/expense-tracker/issues"
+  },
+  "homepage": "https://github.com/pallav-jain-au3/expense-tracker#readme"
+}
