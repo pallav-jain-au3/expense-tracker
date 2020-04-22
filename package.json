@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "cd client && npm install &&  cd ../server/functions && npm install",
-    "serve": "cd client && npm run build-move && cd ../server && firebase serve",
+    "serve": "npm run clean && cd client && npm run build-move && cd ../server && firebase serve",
     "clean": "cd server && rm -rf ../client/build public/build",
     "deploy-hosting": "npm run clean && cd client && npm run build-move && cd ../server && firebase deploy --only hosting",
     "deploy-functions": "cd ../server && firebase deploy --only functions",

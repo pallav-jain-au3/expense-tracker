@@ -2,16 +2,22 @@ import React, {useContext} from 'react';
 import {Link} from 'react-router-dom'
 import {UserContext} from "../provider/UserProvider";
 import axios from 'axios'
+import Transaction from '../components/Transaction';
 
 
 export default function Home (){
-    // const user = useContext(UserContext);
-    axios.get("https://www.google.com");
+    const user = useContext(UserContext);
     return (
         <div>
             Home
-            <Link to= '/signin'>Signin</Link>
-            <Link to= '/signup'>SignUp</Link>
+            {user ? (<Transaction/>):(
+                    <div>
+                        <Link to= '/signin'>Signin</Link>
+                        <Link to= '/signup'>SignUp</Link>
+
+                    </div>
+                )}
+
         </div>
     )
 }

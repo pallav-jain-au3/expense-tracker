@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import {signInWithGoogle, auth} from '../firebase'
 
-const SignIn = () => {
+const SignIn = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -12,8 +12,11 @@ const SignIn = () => {
             .then(res => res.user.getIdToken())
             .then(token => console.log(token))
             .then(() => {
-                setEmail('')
-                setPassword('')
+                {
+                    setEmail('')
+                    setPassword('')
+                }
+               // props.history.push('/')
             })
             .catch(error => {
             setError("Error signing in with password and email!");
